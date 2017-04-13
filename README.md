@@ -10,8 +10,8 @@ Using Yarn:
 
 # Usage
 Native CSS Properties are object that should be generated from `getComputedStyle`
-```javacript
-import cssToProps from 'unobuilder-style-to-object`
+```javascript
+import cssToProps from 'unobuilder-style-to-object'
 
 const nativeProps = window.getComputedStyle(document.querySelector('#my-element'))
 const cssProps = cssToProps(nativeProps)
