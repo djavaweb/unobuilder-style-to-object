@@ -23,5 +23,13 @@
   "devDependencies": {
     "ava": "^0.19.1",
     "xo": "^0.18.1"
+  },
+  "xo": {
+    "esnext": true,
+    "space": true,
+    "semicolon": false
+  },
+  "dependencies": {
+    "tinycolor2": "^1.4.1"
   }
 }
