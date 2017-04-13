@@ -1,4 +1,5 @@
 const tinycolor = require('tinycolor2')
+
 const availableUnits = [
   'px',
   'pt',
@@ -14,20 +15,24 @@ const rgbRegx = /(rgba?)\((.*)\)/
 module.exports = nativeStyle => {
   const object = {}
   for (const key in nativeStyle) {
-    if (typeof key !== 'number') {
+    if (isNaN(parseInt(key, 10))) {
       let value = nativeStyle[key]
       let unit
 
+      if (!value) {
+        continue
+      }
+
       const matchUnit = value.match(unitRegx)
       if (matchUnit) {
-        const int = parseInt(matchUnit[1])
+        const int = parseInt(matchUnit[1], 10)
         if (!isNaN(int)) {
           value = int
           unit = matchUnit[2]
         }
       }
 
-      const matchColor = value.match(rgbRegx)
+      const matchColor = typeof value === 'string' ? value.match(rgbRegx) : null
       if (matchColor) {
         const source = matchColor[1]
         const colors = matchColor[2].split(',')
@@ -54,4 +59,6 @@ module.exports = nativeStyle => {
       }
     }
   }
+
+  return object
 }
