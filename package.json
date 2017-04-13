@@ -4,7 +4,7 @@
   "description": "Convert native CSS properties to unobuilder object",
   "main": "index.js",
   "scripts": {
-    "test": "xo && ava"
+    "test": "xo && ava --verbose"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,9 @@
   "devDependencies": {
     "ava": "^0.19.1",
     "xo": "^0.18.1"
+  },
+  "ava": {
+    "files": ["test/test.js"]
   },
   "xo": {
     "esnext": true,
