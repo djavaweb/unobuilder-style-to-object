@@ -1,6 +1,6 @@
 {
   "name": "unobuilder-style-to-object",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Convert native CSS properties to unobuilder object",
   "main": "index.js",
   "scripts": {
@@ -25,7 +25,9 @@
     "xo": "^0.18.1"
   },
   "ava": {
-    "files": ["test/test.js"]
+    "files": [
+      "test/test.js"
+    ]
   },
   "xo": {
     "esnext": true,
