@@ -1,0 +1,27 @@
+{
+  "name": "unobuilder-style-to-object",
+  "version": "1.0.0",
+  "description": "Convert native CSS properties to unobuilder object",
+  "main": "index.js",
+  "scripts": {
+    "test": "xo && ava"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/djavaweb/unobuilder-style-to-object.git"
+  },
+  "keywords": [
+    "unobuilder",
+    "utils"
+  ],
+  "author": "Ribhararnus Pracutian <oknoorap@gmail.com> (https://www.oknoorap.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/djavaweb/unobuilder-style-to-object/issues"
+  },
+  "homepage": "https://github.com/djavaweb/unobuilder-style-to-object#readme",
+  "devDependencies": {
+    "ava": "^0.19.1",
+    "xo": "^0.18.1"
+  }
+}
