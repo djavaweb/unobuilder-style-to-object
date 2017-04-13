@@ -57,4 +57,4 @@ console.log(cssProps)
 ```
 
 # License
-MIT © [https://github.com/djavaweb](djavaweb)
+MIT © [djavaweb](https://github.com/djavaweb)
