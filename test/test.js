@@ -33,3 +33,13 @@ test('fontSize should have a unit', t => {
   t.is(unitType, 'string')
   t.true(object.fontSize.unit.length > 0)
 })
+
+test('minWidth should be disabled', t => {
+  t.is(typeof object.minWidth.disabled, 'boolean')
+  t.is(object.minWidth.disabled, true)
+})
+
+test('maxWidth should be disabled', t => {
+  t.is(typeof object.maxWidth.disabled, 'boolean')
+  t.is(object.maxWidth.disabled, true)
+})
