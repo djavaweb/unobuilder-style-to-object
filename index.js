@@ -19,8 +19,11 @@ module.exports = nativeStyle => {
       let value = nativeStyle[key]
       let unit
 
-      if (!value) {
-        continue
+      const disabled = typeof value === 'boolean' && !value
+
+      if (disabled) {
+        unit = ''
+        value = ''
       }
 
       const matchUnit = value.match(unitRegx)
@@ -51,6 +54,7 @@ module.exports = nativeStyle => {
       }
 
       object[key] = {
+        disabled,
         value
       }
 
