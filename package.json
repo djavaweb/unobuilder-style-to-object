@@ -1,6 +1,6 @@
 {
   "name": "unobuilder-style-to-object",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Convert native CSS properties to unobuilder object",
   "main": "index.js",
   "scripts": {
@@ -37,7 +37,10 @@
     "esnext": true,
     "space": true,
     "semicolon": false,
-    "envs": ["node", "browser"]
+    "envs": [
+      "node",
+      "browser"
+    ]
   },
   "dependencies": {
     "tinycolor2": "^1.4.1"
