@@ -12,21 +12,27 @@ const availableUnits = [
 const unitRegx = new RegExp(`(\\d+)(${availableUnits.join('|')})`)
 const rgbRegx = /(rgba?)\((.*)\)/
 
-module.exports = nativeStyle => {
+module.exports = originStyle => {
+  const nativeStyle = {}
+  for (const key in originStyle) {
+    if (isNaN(Number(key)) && key.indexOf('-') === -1 && key.charAt(0) !== '_' && typeof originStyle[key] !== 'function') {
+      nativeStyle[key] = originStyle[key]
+    }
+  }
+
   const object = {}
   for (const key in nativeStyle) {
-    if (isNaN(parseInt(key, 10))) {
+    if (Object.prototype.hasOwnProperty.call(nativeStyle, key) && nativeStyle[key] !== null) {
       let value = nativeStyle[key]
       let unit
 
-      const disabled = typeof value === 'boolean' && !value
-
+      const disabled = (value === 'true' || value === 'false') && !JSON.parse(value)
       if (disabled) {
         unit = ''
         value = ''
       }
 
-      const matchUnit = value.match(unitRegx)
+      const matchUnit = (value).toString().match(unitRegx)
       if (matchUnit) {
         const int = parseInt(matchUnit[1], 10)
         if (!isNaN(int)) {
@@ -35,7 +41,7 @@ module.exports = nativeStyle => {
         }
       }
 
-      const matchColor = typeof value === 'string' ? value.match(rgbRegx) : null
+      const matchColor = typeof value === 'string' ? (value).toString().match(rgbRegx) : null
       if (matchColor) {
         const source = matchColor[1]
         const colors = matchColor[2].split(',')

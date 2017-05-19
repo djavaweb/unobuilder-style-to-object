@@ -22,17 +22,22 @@
   "homepage": "https://github.com/djavaweb/unobuilder-style-to-object#readme",
   "devDependencies": {
     "ava": "^0.19.1",
+    "browser-env": "^2.0.31",
     "xo": "^0.18.1"
   },
   "ava": {
     "files": [
       "test/test.js"
+    ],
+    "require": [
+      "./test/helpers/browser-env.js"
     ]
   },
   "xo": {
     "esnext": true,
     "space": true,
-    "semicolon": false
+    "semicolon": false,
+    "envs": ["node", "browser"]
   },
   "dependencies": {
     "tinycolor2": "^1.4.1"
