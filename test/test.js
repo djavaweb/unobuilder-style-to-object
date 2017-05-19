@@ -1,7 +1,16 @@
 import test from 'ava'
 import cssToProps from '../index'
-import nativeProps from './native-props'
 
+const testDiv = document.createElement('div')
+testDiv.style.backgroundColor = 'rgba(255, 0, 0, 1)'
+testDiv.style.width = '900px'
+testDiv.style.fontSize = '13px'
+testDiv.style.minWidth = false
+testDiv.style.maxWidth = false
+
+document.body.appendChild(testDiv)
+
+const nativeProps = window.getComputedStyle(testDiv)
 const object = cssToProps(nativeProps)
 
 test('backgroundColor is an object', t => {
