@@ -45,7 +45,8 @@ module.exports = originStyle => {
       if (matchColor) {
         const source = matchColor[1]
         const colors = matchColor[2].split(',')
-        const a = (source === 'rgba') ? colors[colors.length - 1] : 0
+        const alpha = (source === 'rgba') ? Number(colors[colors.length - 1]) : 0
+        const a = isNaN(alpha) ? 0 : alpha
         const color = tinycolor(value)
         const hsl = color.toHsl()
         value = {
