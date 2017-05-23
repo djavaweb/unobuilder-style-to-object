@@ -2,7 +2,7 @@ import test from 'ava'
 import cssToProps from '../index'
 
 const testDiv = document.createElement('div')
-testDiv.style.backgroundColor = 'rgba(255, 0, 0, 1)'
+testDiv.style.backgroundColor = 'rgba(0, 0, 0, 0)'
 testDiv.style.width = '900px'
 testDiv.style.fontSize = '13px'
 testDiv.style.minWidth = false
@@ -15,6 +15,10 @@ const object = cssToProps(nativeProps)
 
 test('backgroundColor is an object', t => {
   t.is(typeof object, 'object')
+})
+
+test('backgroundColor is transparent', t => {
+  t.is(object.backgroundColor.value.a, 0)
 })
 
 test('backgroundColor rgba is an object', t => {
